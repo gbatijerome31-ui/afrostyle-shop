@@ -1,0 +1,699 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
+:root {
+    --primary-color: #92400E;
+    /* Marron élégant */
+    --secondary-color: #111827;
+    /* Noir bleuté */
+    --accent-color: #D97706;
+    /* Orange/Ambre */
+    --bg-light: #FEF3C7;
+    /* Fond crème */
+    --white: #FFFFFF;
+    --green-elegant: #065F46;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+    background-color: var(--white);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- HEADER & NAV --- */
+header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    /* Flexbox pour séparer logo et nav */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+    border-radius: 30%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent-color);
+}
+
+
+
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-fashion1.webp');
+    background-size: auto;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+
+}
+
+.hero p {
+    font-size: 2rem;
+
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+}
+
+.btn-secondary {
+    background-color: var(--green-elegant);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.presentation {
+    background-color: var(--light-bg);
+
+    text-align: center;
+    padding: 80px 10%;
+
+}
+
+.presentation h2 {
+    color: var(--primary);
+
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+
+.presentation h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+
+    margin: 10px auto 0;
+}
+
+.presentation-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+}
+
+.presentation-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--secondary);
+
+    font-weight: 300;
+
+}
+
+
+.featured-products {
+    padding: 80px 5%;
+    background-color: var(--white);
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.coup {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    /* Active Flexbox */
+    flex-wrap: wrap;
+    /* Permet aux cartes de passer à la ligne sur mobile */
+    justify-content: center;
+    /* Centre les cartes horizontalement */
+    gap: 30px;
+    /* Espace régulier entre chaque carte */
+    margin-top: 40px;
+}
+
+/* Style de la Carte Produit individuelle */
+.product-card {
+    background: var(--white);
+    width: 280px;
+    /* Largeur fixe pour garder une harmonie */
+    border: 1px solid #f1f1f1;
+    border-radius: 15px;
+    /* Boutons et cartes arrondis selon la consigne */
+    overflow: hidden;
+    /* Pour que l'image ne dépasse pas des bords arrondis */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    /* Ombre légère pour le relief */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Effet au survol de la carte (Donne un aspect interactif) */
+.product-card:hover {
+    transform: translateY(-10px);
+    /* La carte monte légèrement */
+    box-shadow: 0 15px 30px rgba(146, 64, 14, 0.1);
+    /* Ombre plus marquée */
+}
+
+/* Style de l'image du produit */
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    /* Très important : recadre l'image sans la déformer */
+    border-bottom: 1px solid #eee;
+}
+
+/* Contenu textuel de la carte */
+.product-card h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 5px;
+    color: var(--secondary);
+    /* Noir bleuté #111827 */
+}
+
+.product-card .price {
+    font-weight: 700;
+    color: var(--accent);
+    /* Couleur Ambre #D97706 pour le prix */
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Bouton de commande dans la carte */
+.btn-buy {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--primary);
+    /* Marron #92400E */
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+
+
+.btn-buy:hover {
+    background-color: var(--green);
+    /* Change vers le vert élégant au survol */
+}
+
+/* --- SECTION AVANTAGES --- */
+.advantages {
+    background-color: var(--light-bg);
+    /* Le fond crème #FEF3C7 */
+    padding: 80px 5%;
+}
+
+.advantages-grid {
+    display: flex;
+    /* Active le mode Flexbox */
+    flex-wrap: wrap;
+    /* Permet de passer à la ligne si pas assez de place */
+    justify-content: center;
+    /* Centre les éléments horizontalement */
+    gap: 25px;
+    /* Espace entre les cartes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.adv-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    /* Respecte la consigne des bords arrondis */
+    width: 260px;
+    /* Largeur de chaque cellule de la grille */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.adv-card:hover {
+    transform: translateY(-5px);
+    /* Petit effet de soulèvement au survol */
+}
+
+.adv-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.adv-card h3 {
+    color: var(--green);
+    /* Le vert élégant #065F46 */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.adv-card p {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.collections-container {
+    display: flex !important;
+    flex-direction: row !important;
+    /* Force l'alignement en ligne */
+    flex-wrap: wrap !important;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.collection-card {
+    flex: 0 1 30%;
+    /* Force chaque carte à prendre environ 30% (soit 3 par ligne) */
+    min-width: 280px;
+    /* Empêche les cartes de devenir trop minuscules */
+    margin-bottom: 20px;
+}
+
+/* --- LE STYLE DE LA CARTE --- */
+.collection-card {
+    background: #ffffff;
+    width: 320px;
+    /* Largeur d'une carte */
+    border-radius: 15px;
+    /* Bords arrondis selon consigne */
+    overflow: hidden;
+    /* Pour que l'image ne dépasse pas des bords arrondis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    /* Petit effet au survol */
+}
+
+/* L'image de la collection */
+.collection-img-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    /* Recadre proprement l'image */
+}
+
+/* Le texte à l'intérieur de la carte */
+.collection-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.collection-body h3 {
+    color: #92400E;
+    /* Marron de ta charte graphique */
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.collection-body p {
+    font-size: 0.9rem;
+    color: #4B5563;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Le bouton spécifique à la collection */
+.btn-collection {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #92400E;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    /* Bouton arrondi */
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-collection:hover {
+    background-color: #D97706;
+    /* Changement de couleur au survol */
+}
+
+
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 5%;
+    flex-direction: row;
+}
+
+.product-card {
+    background: #ffffff;
+    width: calc(25% - 25px);
+    /* 4 produits par ligne sur PC */
+    min-width: 250px;
+    /* Sécurité pour le responsive */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    border: 1px solid #f3f4f6;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(146, 64, 14, 0.15);
+}
+
+.product-img-container {
+    position: relative;
+    height: 300px;
+}
+
+.product-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Badge "Nouveau" ou "Promo" */
+.badge-new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #065F46;
+    /* Ton vert élégant */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-body h3 {
+    font-size: 1.1rem;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    color: #D97706;
+    /* Ton orange de prix */
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.btn-order {
+    display: block;
+    background: #92400E;
+    /* Marron principal */
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-order:hover {
+    background: #111827;
+    /* Noir au survol */
+}
+
+
+
+
+.about-intro {
+    background-color: #FEF3C7;
+    /* Fond crème */
+    text-align: center;
+    padding: 60px 5%;
+}
+
+.about-intro h1 {
+    color: #92400E;
+    /* Marron principal */
+    font-size: 2.5rem;
+}
+
+
+.about-flex-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 10%;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    color: #92400E;
+    margin-bottom: 20px;
+}
+
+.about-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 15px;
+    /* Arrondi conforme */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.values-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 5% 60px;
+}
+
+.value-card {
+    background: #ffffff;
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #D97706;
+}
+
+
+.value-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+
+.contact-header {
+    background-color: #FEF3C7;
+    /* Fond crème */
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.contact-header h1 {
+    color: #92400E;
+    /* Marron */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-container {
+    padding: 50px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 850px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+/* Organisation des lignes du formulaire */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Important pour le mobile */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    flex: 1;
+    min-width: 250px;
+    /* Force l'alignement côte à côte sur PC */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Effet au clic (Focus) */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #92400E;
+    box-shadow: 0 0 0 3px rgba(146, 64, 14, 0.1);
+}
+
+/* Le bouton d'envoi */
+.btn-send {
+    display: block;
+    width: 100%;
+    background-color: #92400E;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-send:hover {
+    background-color: #D97706;
+    /* Orange au survol */
+}
+
+
+
+@media (max-width: 768px) {
+
+    /* 1. Grilles : on passe tout sur une seule colonne */
+    .collections-container,
+    .products-container,
+    .container-grid,
+    .form-row {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    /* 2. Cartes : elles prennent presque toute la largeur */
+    .collection-card,
+    .product-card,
+    .value-card {
+        width: 90% !important;
+        min-width: unset !important;
+    }
+
+    /* 3. Texte : on réduit un peu la taille des titres */
+    h1 {
+        font-size: 1.8rem !important;
+    }
+
+    /* 4. Menu : assure-toi qu'il ne déborde pas */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 5%;
+    margin-top: 50px;
+}
